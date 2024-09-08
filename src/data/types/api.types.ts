@@ -1,4 +1,3 @@
-
 export interface IRequestOptions {
   baseURL?: string;
   url: string;

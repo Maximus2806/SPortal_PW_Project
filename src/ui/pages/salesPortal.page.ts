@@ -1,7 +1,7 @@
-import { BasePage } from './base.page.js';
+import { BasePage } from "./base.page.js";
 
 export abstract class SalesPortalPage extends BasePage {
-  protected readonly spinner = this.findElement('.spinner-border');
+  protected readonly spinner = this.findElement(".spinner-border");
   abstract readonly uniqueElement: string;
 
   async waitForOpened() {
@@ -9,6 +9,6 @@ export abstract class SalesPortalPage extends BasePage {
   }
 
   async waitForSpinnerToHide() {
-    await this.waitForElement(this.spinner, 'hidden');
+    await this.waitForElement(this.spinner, "hidden");
   }
 }

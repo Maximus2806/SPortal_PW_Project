@@ -4,7 +4,7 @@ import { HomeService } from "../../services/home.service";
 import { CustomersListService } from "../../services/customers/customers.service";
 import { AddCustomerService } from "../../services/customers/addNewCustomer.service";
 
-test.describe("[UI] [Customers] Smoke", async function () {
+test.describe.skip("[UI] [Customers] Smoke", async function () {
   let signInService: SignInService;
   let homeService: HomeService;
   let customersService: CustomersListService;

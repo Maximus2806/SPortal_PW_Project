@@ -1,12 +1,9 @@
-import Ajv from 'ajv';
-import { IResponse } from '../../data/types/api.types';
-import { IResponseFields } from '../../data/types/api.types';
-import { expect } from '@playwright/test';
+import Ajv from "ajv";
+import { IResponse } from "../../data/types/api.types";
+import { IResponseFields } from "../../data/types/api.types";
+import { expect } from "@playwright/test";
 
-export function validateSchema<T extends IResponseFields>(
-  response: IResponse<T>,
-  schema: object
-) {
+export function validateSchema<T extends IResponseFields>(response: IResponse<T>, schema: object) {
   const ajv = new Ajv();
   const validate = ajv.compile(schema);
   const isValidSchema = validate(response.body);

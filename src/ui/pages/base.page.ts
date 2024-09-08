@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { IResponse, IResponseFields } from "../../data/types/api.types.ts";
+import { IResponse, IResponseFields } from "../../data/types/api.types";
 import { logStep } from "../../utils/report/logStep";
 
 const DEFAULT_TIMEOUT = 10000;
@@ -64,10 +64,6 @@ export class BasePage {
   @logStep()
   async openPage(url: string) {
     await this.page.goto(url);
-  }
-
-  async deleteCookies() {
-    await this.page.context().clearCookies();;
   }
 
   async interceptResponse<T extends IResponseFields>(

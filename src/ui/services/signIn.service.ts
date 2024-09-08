@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { ADMIN_PASSWORD, ADMIN_USERNAME, BASE_URL } from "../../config/environment";
+import { ADMIN_PASSWORD, ADMIN_USERNAME } from "../../config/environment";
 import { IUserCredentials } from "../../data/types/user.types.js";
 import { HomePage } from "../pages/home.page.js";
 import { SignInPage } from "../pages/login.page.js";
@@ -14,8 +14,8 @@ export class SignInService {
   }
 
   @logStep()
-  async openSalesPortal() {    
-    await this.signInPage.openPage(BASE_URL);
+  async openSalesPortal() {
+    await this.signInPage.openPage("https://anatoly-karpovich.github.io/aqa-course-project");
   }
 
   @logStep()
@@ -35,7 +35,7 @@ export class SignInService {
     await this.signInPage.fillCredentialsInputs(credentials);
   }
 
-  async signOut() {
-    await this.signInPage.deleteCookies();
-  }
+  // async signOut() {
+  //   await this.signInPage.deleteCookies(["Authorization"]);
+  // }
 }
