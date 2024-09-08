@@ -1,4 +1,4 @@
-import { IResponseFields } from './api.types';
+import { IResponseFields } from "./api.types";
 
 export interface IUserCredentials {
   username: string;

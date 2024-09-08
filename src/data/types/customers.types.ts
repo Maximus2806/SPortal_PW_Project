@@ -1,14 +1,14 @@
-import { IResponseFields } from './api.types';
+import { IResponseFields } from "./api.types";
 
 export enum COUNTRIES {
-  USA = 'USA',
-  CANADA = 'Canada',
-  BELARUS = 'Belarus',
-  UKRAINE = 'Ukraine',
-  GERMANY = 'Germany',
-  FRANCE = 'France',
-  GREAT_BRITAIN = 'Great Britain',
-  RUSSIA = 'Russia',
+  USA = "USA",
+  CANADA = "Canada",
+  BELARUS = "Belarus",
+  UKRAINE = "Ukraine",
+  GERMANY = "Germany",
+  FRANCE = "France",
+  GREAT_BRITAIN = "Great Britain",
+  RUSSIA = "Russia",
 }
 
 export interface ICustomer {
