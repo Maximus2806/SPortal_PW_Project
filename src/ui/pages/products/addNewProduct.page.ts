@@ -11,7 +11,7 @@ export class AddNewProductPage extends SalesPortalPage {
   private readonly 'Notes textarea' = '#textareaNotes';
   private readonly 'Save New Product button' = '#save-new-product';
 
-  async fillInputs(product: Partial<IProduct>) {    
+  async fillInputs(product: Partial<IProduct>) {
     product.name && (await this.setValue(this['Name input'], product.name));
     product.manufacturer && (await this.selectDropdownValue(this['Manufacturer dropdown'], product.manufacturer));
     product.price !== undefined && (await this.setValue(this['Price input'], product.price));

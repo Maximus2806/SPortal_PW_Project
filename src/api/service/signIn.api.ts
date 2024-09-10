@@ -1,7 +1,7 @@
-import { expect } from "allure-playwright";
-import { ADMIN_PASSWORD, ADMIN_USERNAME } from "../../config/environment";
-import { SignInApiClient } from "../clients/signIn.client";
-import { STATUS_CODES } from "../../data/types/api.types";
+import { expect } from 'allure-playwright';
+import { ADMIN_PASSWORD, ADMIN_USERNAME } from '../../config/environment';
+import { SignInApiClient } from '../clients/signIn.client';
+import { STATUS_CODES } from '../../data/types/api.types';
 
 class SignInApiService {
   private token: string;

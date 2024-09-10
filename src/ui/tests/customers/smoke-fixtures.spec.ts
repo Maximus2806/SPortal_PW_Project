@@ -1,6 +1,6 @@
-import { test } from "../../../fixtures/services.fixture";
+import { test } from '../../../fixtures/services.fixture';
 
-test.describe("[UI] [Customers] Smoke with fixtures", async function () {
+test.describe('[UI] [Customers] Smoke with fixtures', async function () {
   test.beforeEach(async function ({ signInPageService }) {
     await signInPageService.openSalesPortal();
   });
@@ -9,10 +9,10 @@ test.describe("[UI] [Customers] Smoke with fixtures", async function () {
     //TODO: delete customer
   });
 
-  test("Create customer with valid data with fixture", async function ({
+  test('Create customer with valid data with fixture', async function ({
     homePageService,
     customersPageService,
-    addNewCustomerPageService,
+    addNewCustomerPageService
   }) {
     await homePageService.openCustomersPage();
     await customersPageService.openAddNewCustomerPage();
@@ -20,11 +20,11 @@ test.describe("[UI] [Customers] Smoke with fixtures", async function () {
     //TODO: check customer in table
   });
 
-  test("Validate created customer", async function ({
+  test('Validate created customer', async function ({
     homePageService,
     customersPageService,
     customersApiService,
-    page,
+    page
   }) {
     const createdCustomer = customersApiService.create();
     await homePageService.openCustomersPage();

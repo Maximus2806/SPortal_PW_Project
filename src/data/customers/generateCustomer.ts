@@ -1,6 +1,6 @@
-import { faker } from "@faker-js/faker";
-import { ICustomer, COUNTRIES } from "../types/customers.types";
-import { getRandromEnumValue } from "../../utils/enums/getRandomValue";
+import { faker } from '@faker-js/faker';
+import { ICustomer, COUNTRIES } from '../types/customers.types';
+import { getRandromEnumValue } from '../../utils/enums/getRandomValue';
 
 export const generateNewCustomer = (params?: Partial<ICustomer>) => {
   return {
@@ -13,6 +13,6 @@ export const generateNewCustomer = (params?: Partial<ICustomer>) => {
     flat: faker.number.int(9999),
     phone: `+${faker.number.int(999999999999)}`,
     notes: `Notes ${faker.string.alpha(244)}`,
-    ...params,
+    ...params
   } as ICustomer;
 };

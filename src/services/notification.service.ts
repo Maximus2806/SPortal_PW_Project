@@ -1,4 +1,4 @@
-import slackService from "./slack.service";
+import slackService from './slack.service';
 
 class NotificationService {
   constructor(private service = slackService) {}

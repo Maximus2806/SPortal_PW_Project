@@ -1,9 +1,9 @@
-import _ from "lodash";
-import { AddNewCustomerPage } from "../../pages/customers/addNewCustomer.page.js";
-import { CustomersListPage } from "../../pages/customers/customers.page.js";
-import { expect, Page } from "@playwright/test";
-import { TABLE_MESSAGES } from "../../../data/customers/customersList.js";
-import { logStep } from "../../../utils/report/logStep.js";
+import _ from 'lodash';
+import { AddNewCustomerPage } from '../../pages/customers/addNewCustomer.page.js';
+import { CustomersListPage } from '../../pages/customers/customers.page.js';
+import { expect, Page } from '@playwright/test';
+import { TABLE_MESSAGES } from '../../../data/customers/customersList.js';
+import { logStep } from '../../../utils/report/logStep.js';
 
 export class CustomersListService {
   private customersPage: CustomersListPage;

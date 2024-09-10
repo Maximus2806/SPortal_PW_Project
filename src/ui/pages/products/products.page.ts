@@ -15,7 +15,7 @@ export class ProductsPage extends SalesPortalPage {
   async getDataByName(name: string) {
     const [price, manufacturer] = await Promise.all([
       this.getText(this['Price by table row'](name)),
-      this.getText(this['Manufacturer by table row'](name)),
+      this.getText(this['Manufacturer by table row'](name))
     ]);
     return { name, price: +price.replace('$', ''), manufacturer };
   }
