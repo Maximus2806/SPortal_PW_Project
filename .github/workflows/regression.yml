@@ -49,7 +49,7 @@ jobs:
 
       # Save report into artifacts
       - name: Save Allure report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ui-report
           path: ./allure-report
