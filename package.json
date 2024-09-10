@@ -10,18 +10,33 @@
     "ui-mode": "npx playwright test --ui",
     "report-html-open": "npx playwright show-report",
     "report-create": "allure generate allure-results -o allure-report --clean",
-    "report-open": "npm run report-create && allure open allure-report"
+    "report-open": "npm run report-create && allure open allure-report",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "prettier": "prettier --config .prettierrc src/**/*.ts --check",
+    "prettier-fix": "prettier --config .prettierrc src/**/*.ts --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.10.0",
     "@playwright/test": "^1.46.1",
     "@types/ajv": "^1.0.0",
     "@types/dotenv": "^8.2.0",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.4.1",
-    "cross-env": "^7.0.3"
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.5.0"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",

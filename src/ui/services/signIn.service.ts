@@ -1,9 +1,9 @@
-import { Page } from "@playwright/test";
-import { ADMIN_PASSWORD, ADMIN_USERNAME } from "../../config/environment";
-import { IUserCredentials } from "../../data/types/user.types.js";
-import { HomePage } from "../pages/home.page.js";
-import { SignInPage } from "../pages/login.page.js";
-import { logStep } from "../../utils/report/logStep.js";
+import { Page } from '@playwright/test';
+import { ADMIN_PASSWORD, ADMIN_USERNAME } from '../../config/environment';
+import { IUserCredentials } from '../../data/types/user.types.js';
+import { HomePage } from '../pages/home.page.js';
+import { SignInPage } from '../pages/login.page.js';
+import { logStep } from '../../utils/report/logStep.js';
 
 export class SignInService {
   private signInPage: SignInPage;
@@ -15,7 +15,7 @@ export class SignInService {
 
   @logStep()
   async openSalesPortal() {
-    await this.signInPage.openPage("https://anatoly-karpovich.github.io/aqa-course-project");
+    await this.signInPage.openPage('https://anatoly-karpovich.github.io/aqa-course-project');
   }
 
   @logStep()

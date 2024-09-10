@@ -1,5 +1,5 @@
-import { Page, test as base } from "@playwright/test";
-import { STATUS_CODES } from "../data/types/api.types";
+import { Page, test as base } from '@playwright/test';
+import { STATUS_CODES } from '../data/types/api.types';
 
 export class Mock {
   constructor(private page: Page) {}
@@ -14,7 +14,7 @@ export class Mock {
       // }
       await routeForModifications.fulfill({
         json: body,
-        status: status,
+        status: status
       });
     });
   }
@@ -27,5 +27,5 @@ interface MockFixture {
 export const test = base.extend<MockFixture>({
   mock: async ({ page }, use) => {
     await use(new Mock(page));
-  },
+  }
 });

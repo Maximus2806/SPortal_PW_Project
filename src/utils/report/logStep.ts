@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { test } from '@playwright/test';
 
 /**
  * Decorator that wraps a step method with a Playwright test step.

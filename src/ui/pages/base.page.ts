@@ -1,13 +1,13 @@
-import { Locator, Page } from "@playwright/test";
-import { IResponse, IResponseFields } from "../../data/types/api.types";
-import { logStep } from "../../utils/report/logStep";
+import { Locator, Page } from '@playwright/test';
+import { IResponse, IResponseFields } from '../../data/types/api.types';
+import { logStep } from '../../utils/report/logStep';
 
 const DEFAULT_TIMEOUT = 10000;
 
 type LocatorOrSelector = Locator | string;
 
 function isSelector(elementOrSelector: LocatorOrSelector): elementOrSelector is string {
-  return typeof elementOrSelector === "string";
+  return typeof elementOrSelector === 'string';
 }
 
 export class BasePage {
@@ -17,9 +17,13 @@ export class BasePage {
     return isSelector(locator) ? this.page.locator(locator) : locator;
   }
 
+  protected async getElementAttribute(locator: LocatorOrSelector, attribute: string) {
+    return await this.findElement(locator).getAttribute(attribute);
+  }
+
   protected async waitForElement(
     locator: LocatorOrSelector,
-    state: "attached" | "detached" | "visible" | "hidden" = "visible",
+    state: 'attached' | 'detached' | 'visible' | 'hidden' = 'visible',
     timeout = DEFAULT_TIMEOUT
   ) {
     const element = this.findElement(locator);
@@ -28,7 +32,7 @@ export class BasePage {
   }
 
   protected async waitForElementAndScroll(locator: LocatorOrSelector, timeout = DEFAULT_TIMEOUT) {
-    const element = await this.waitForElement(locator, "visible");
+    const element = await this.waitForElement(locator, 'visible');
     await element.scrollIntoViewIfNeeded({ timeout });
     return element;
   }
@@ -74,7 +78,7 @@ export class BasePage {
     return {
       body: (await response.json()) as T,
       status: response.status(),
-      headers: response.headers(),
+      headers: response.headers()
     };
   }
 }

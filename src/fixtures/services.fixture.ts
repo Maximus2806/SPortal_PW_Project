@@ -1,9 +1,9 @@
-import { AddCustomerService } from "../ui/services/customers/addNewCustomer.service";
-import { CustomersListService } from "../ui/services/customers/customers.service";
-import { HomeService } from "../ui/services/home.service";
-import { SignInService } from "../ui/services/signIn.service";
-import { CustomersApiService } from "../api/service/customers.service";
-import { test as base } from "@playwright/test";
+import { AddCustomerService } from '../ui/services/customers/addNewCustomer.service';
+import { CustomersListService } from '../ui/services/customers/customers.service';
+import { HomeService } from '../ui/services/home.service';
+import { SignInService } from '../ui/services/signIn.service';
+import { CustomersApiService } from '../api/service/customers.service';
+import { test as base } from '@playwright/test';
 
 interface ISalesPortalServices {
   customersPageService: CustomersListService;
@@ -32,5 +32,5 @@ export const test = base.extend<ISalesPortalServices>({
 
   customersApiService: async ({}, use) => {
     await use(new CustomersApiService());
-  },
+  }
 });
