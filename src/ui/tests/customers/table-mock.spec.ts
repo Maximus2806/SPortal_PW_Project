@@ -10,6 +10,7 @@ const test = mergeTests(mockTest, servicesTest);
 test.describe('[UI] [Customers] Smoke', async function () {
   test.beforeEach(async function ({ signInPageService }) {
     await signInPageService.openSalesPortal();
+    //signInService оставил для дебага при отключении сетапа
     // await signInPageService.loginAsAdmin();
   });
 

@@ -4,7 +4,7 @@ import { HomeService } from '../../services/home.service';
 import { CustomersListService } from '../../services/customers/customers.service';
 import { AddCustomerService } from '../../services/customers/addNewCustomer.service';
 
-test.describe.skip('[UI] [Customers] Smoke', async function () {
+test.describe('[UI] [Customers] Smoke', async function () {
   let signInService: SignInService;
   let homeService: HomeService;
   let customersService: CustomersListService;
@@ -16,7 +16,8 @@ test.describe.skip('[UI] [Customers] Smoke', async function () {
     customersService = new CustomersListService(page);
     addNewCustomerService = new AddCustomerService(page);
     await signInService.openSalesPortal();
-    await signInService.loginAsAdmin();
+    //signInService оставил для дебага при отключении сетапа
+    // await signInService.loginAsAdmin();
   });
 
   test.afterEach(async function ({ page }) {

@@ -1,6 +1,6 @@
 import { SalesPortalPage } from '../salesPortal.page.js';
 
-export class ProductsPage extends SalesPortalPage {
+export class ProductsListPage extends SalesPortalPage {
   readonly uniqueElement = '//h2[.="Products List "]';
   private readonly 'Table row selector' = (product: string) => `//tr[./td[text()="${product}"]]`;
   private readonly 'Price by table row' = (product: string) => `${this['Table row selector'](product)}/td[2]`;
