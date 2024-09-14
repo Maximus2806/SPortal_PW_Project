@@ -2,7 +2,7 @@ import { expect, Page } from '@playwright/test';
 import { IProduct } from '../../../data/types/product.types.js';
 import { logStep } from '../../../utils/report/logStep.js';
 import { DeleteModalWindowPage } from '../../pages/modals/deleteModal.page.js';
-import { ModalWindowPage } from '../../pages/modals/detailsModal.page.js';
+import { ProductsModalWindowPage } from '../../pages/modals/productDetailsModal.page.js';
 import { AddNewProductPage } from '../../pages/products/addNewProduct.page.js';
 import { ProductsListPage } from '../../pages/products/products.page.js';
 import _ from 'lodash';
@@ -10,12 +10,12 @@ import _ from 'lodash';
 export class ProductsListService {
     private productsPage: ProductsListPage;
     private addNewProductPage: AddNewProductPage;
-    private modalWindowPage: ModalWindowPage;
+    private modalWindowPage: ProductsModalWindowPage;
     private deleteModalWindowPage: DeleteModalWindowPage;
   constructor(protected page: Page) {
     this.productsPage = new ProductsListPage(page),
     this.addNewProductPage = new AddNewProductPage(page),
-    this.modalWindowPage = new ModalWindowPage(page),
+    this.modalWindowPage = new ProductsModalWindowPage(page),
     this.deleteModalWindowPage = new DeleteModalWindowPage(page)
   }
 

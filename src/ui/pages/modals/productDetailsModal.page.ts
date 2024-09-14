@@ -1,6 +1,6 @@
 import { BaseModalPage } from '../baseModal.page.js';
 
-export class ModalWindowPage extends BaseModalPage {
+export class ProductsModalWindowPage extends BaseModalPage {
   private readonly 'Row value by row name' = (row: string) =>
     `//div[@class="modal-body"]//div[strong[text()="${row}:"]]/div`;
 

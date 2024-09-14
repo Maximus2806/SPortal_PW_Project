@@ -16,7 +16,7 @@ test.describe('[UI] [Customers] Smoke', async function () {
     customersService = new CustomersListService(page);
     addNewCustomerService = new AddCustomerService(page);
     await signInService.openSalesPortal();
-    //signInService оставил для дебага при отключении сетапа
+    //signInService is here just for debugging in case auth.setup.ts is disabled
     // await signInService.loginAsAdmin();
   });
 
