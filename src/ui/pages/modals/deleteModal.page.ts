@@ -1,6 +1,6 @@
 import { BaseModalPage } from '../baseModal.page.js';
 
-export class DeleteModalWindowPage extends BaseModalPage {
+export class DeleteModalPage extends BaseModalPage {
   async submitDelete() {
     await this.clickSubmit();
   }

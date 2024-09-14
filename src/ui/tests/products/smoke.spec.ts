@@ -14,8 +14,7 @@ test.describe('[UI] [Product] Smoke Login - Create -Verify - Delete', async func
   let homeService: HomeService;
   let productsService: ProductsListService;
   let addProductService: AddProductService;
-  let productsPage: ProductsListPage;
-  let salesPortalService: SalesPortalService;
+  let productsPage: ProductsListPage;  
 
   test.beforeEach(async function ({ page }) {
     signInService = new SignInService(page);

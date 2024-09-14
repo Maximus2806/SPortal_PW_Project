@@ -19,8 +19,7 @@ export class ProductsListPage extends SalesPortalPage {
     ]);
     return { name, price: +price.replace('$', ''), manufacturer };
   }
-
-  //проверить, вроде этот метод отдельно вынесен был
+  
   async clickOnDetailsButton(name: string) {
     await this.click(this['Details button'](name));
   }

@@ -1,22 +1,22 @@
 import { expect, Page } from '@playwright/test';
 import { IProduct } from '../../../data/types/product.types.js';
 import { logStep } from '../../../utils/report/logStep.js';
-import { DeleteModalWindowPage } from '../../pages/modals/deleteModal.page.js';
-import { ProductsModalWindowPage } from '../../pages/modals/productDetailsModal.page.js';
+import { DeleteModalPage } from '../../pages/modals/deleteModal.page.js';
+import { ProductDetailsModalPage } from '../../pages/modals/productDetailsModal.page.js';
 import { AddNewProductPage } from '../../pages/products/addNewProduct.page.js';
 import { ProductsListPage } from '../../pages/products/products.page.js';
 import _ from 'lodash';
 
 export class ProductsListService {
-    private productsPage: ProductsListPage;
-    private addNewProductPage: AddNewProductPage;
-    private modalWindowPage: ProductsModalWindowPage;
-    private deleteModalWindowPage: DeleteModalWindowPage;
+  private productsPage: ProductsListPage;
+  private addNewProductPage: AddNewProductPage;
+  private modalWindowPage: ProductDetailsModalPage;
+  private deleteModalPage: DeleteModalPage;
   constructor(protected page: Page) {
-    this.productsPage = new ProductsListPage(page),
-    this.addNewProductPage = new AddNewProductPage(page),
-    this.modalWindowPage = new ProductsModalWindowPage(page),
-    this.deleteModalWindowPage = new DeleteModalWindowPage(page)
+    (this.productsPage = new ProductsListPage(page)),
+      (this.addNewProductPage = new AddNewProductPage(page)),
+      (this.modalWindowPage = new ProductDetailsModalPage(page)),
+      (this.deleteModalPage = new DeleteModalPage(page));
   }
 
   @logStep('Open add new product page')
@@ -31,7 +31,7 @@ export class ProductsListService {
     const createdProductData = await this.productsPage.getDataByName(productName);
     return createdProductData;
   }
-  
+
   private async openDetails(productName: string) {
     await this.productsPage.clickOnDetailsButton(productName);
   }
@@ -54,7 +54,7 @@ export class ProductsListService {
   @logStep('Delete created product')
   async deleteCreatedProduct(productName: string) {
     await this.productsPage.clickOnDeleteButton(productName);
-    await this.deleteModalWindowPage.submitDelete();
+    await this.deleteModalPage.submitDelete();
   }
 
   @logStep('Validate product in table')
