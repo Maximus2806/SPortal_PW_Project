@@ -9,11 +9,11 @@ export class CustomerDetailsModalPage extends BaseModalPage {
     await this.click(this['Submit button']);
   }
 
-  async clickCancel() {    
+  async clickCancelButton() {    
     await this.click(this['Cancel button'])
   }
 
-  async clickCross() {    
+  async clickCrossButton() {    
     await this.click(this['Close modal button'])
   }
 

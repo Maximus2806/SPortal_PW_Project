@@ -40,15 +40,8 @@ export class ProductsListService {
   async getCreatedProductDetails(productName: string) {
     await this.openDetails(productName);
     const productData = await this.modalWindowPage.getProductData();
-    await this.modalWindowPage.clickCross();
+    await this.modalWindowPage.clickCrossButton();
     return productData;
-  }
-
-  @logStep('Get toast message and close toast')
-  async getNotificationAndClose() {
-    const notification = await this.productsPage.getNotificationMessage();
-    await this.productsPage.closeNotificationMessage();
-    return notification;
   }
 
   @logStep('Delete created product')
