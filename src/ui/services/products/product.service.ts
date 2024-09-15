@@ -46,8 +46,8 @@ export class ProductsListService {
 
   @logStep('Get toast message and close toast')
   async getNotificationAndClose() {
-    const notification = await this.productsPage.getToastMessage();
-    await this.productsPage.closeToastMessage();
+    const notification = await this.productsPage.getNotificationMessage();
+    await this.productsPage.closeNotificationMessage();
     return notification;
   }
 
