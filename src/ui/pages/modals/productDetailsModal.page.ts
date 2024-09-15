@@ -1,23 +1,20 @@
 import { BaseModalPage } from '../baseModal.page.js';
 
 export class ProductDetailsModalPage extends BaseModalPage {
+  uniqueElement: string;
   private readonly 'Row value by row name' = (row: string) =>
     `//div[@class="modal-body"]//div[strong[text()="${row}:"]]/div`;
-
-  async clickEditButton() {
-    await this.clickSubmit();
+  
+  async clickActionButton() {    
+    await this.click(this['Submit button']);
   }
 
-  async closeByCancel() {
-    await this.clickCancel();
+  async clickCancel() {    
+    await this.click(this['Cancel button'])
   }
 
-  async closeByCross() {
-    await this.clickCross();
-  }
-
-  async submit() {
-    await this.clickSubmit();
+  async clickCross() {    
+    await this.click(this['Close modal button'])
   }
 
   async getProductData() {

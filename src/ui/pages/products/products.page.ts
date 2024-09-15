@@ -7,6 +7,7 @@ export class ProductsListPage extends SalesPortalPage {
   private readonly 'Manufacturer by table row' = (product: string) => `${this['Table row selector'](product)}/td[3]`;
   private readonly 'Details button' = (product: string) => `${this['Table row selector'](product)}/td[5]/button[1]`;
   private readonly 'Delete button' = (product: string) => `${this['Table row selector'](product)}/td[5]/button[3]`;
+  private readonly 'Add New Product button' = 'button.page-title-header';
 
   async clickOnAddNewProduct() {
     await this.click(this['Add New Product button']);

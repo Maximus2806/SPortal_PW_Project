@@ -1,14 +1,16 @@
 import { BaseModalPage } from '../baseModal.page.js';
 
 export class DeleteModalPage extends BaseModalPage {
-  async submitDelete() {
-    await this.clickSubmit();
+
+  uniqueElement: string;
+  async clickActionButton() {    
+    await this.click(this['Submit button']);
   }
-  async closeByCancel() {
-    await this.clickCancel();
+  async clickCancel() {    
+    await this.click(this['Cancel button'])
   }
 
-  async closeByCross() {
-    await this.clickCross();
+  async clickCross() {    
+    await this.click(this['Close modal button'])
   }
 }

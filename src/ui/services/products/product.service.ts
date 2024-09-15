@@ -40,7 +40,7 @@ export class ProductsListService {
   async getCreatedProductDetails(productName: string) {
     await this.openDetails(productName);
     const productData = await this.modalWindowPage.getProductData();
-    await this.modalWindowPage.closeByCross();
+    await this.modalWindowPage.clickCross();
     return productData;
   }
 
@@ -54,7 +54,7 @@ export class ProductsListService {
   @logStep('Delete created product')
   async deleteCreatedProduct(productName: string) {
     await this.productsPage.clickOnDeleteButton(productName);
-    await this.deleteModalPage.submitDelete();
+    await this.deleteModalPage.clickActionButton();
   }
 
   @logStep('Validate product in table')
