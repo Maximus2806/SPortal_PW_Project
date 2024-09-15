@@ -17,6 +17,10 @@ export class BasePage {
     return isSelector(locator) ? this.page.locator(locator) : locator;
   }
 
+  protected findElements(locator: LocatorOrSelector) {
+    return isSelector(locator) ? this.page.locator(locator).all() : locator.all();
+  }
+
   protected async getElementAttribute(locator: LocatorOrSelector, attribute: string) {
     return await this.findElement(locator).getAttribute(attribute);
   }
