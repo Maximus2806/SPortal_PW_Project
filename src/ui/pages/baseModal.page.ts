@@ -5,9 +5,9 @@ export abstract class BaseModalPage extends SalesPortalPage {
   protected readonly 'Cancel button' = '//div[@class="modal-footer"]//button[2]';
   protected readonly 'Close modal button' = '//div[@class="modal-header"]/button';
 
-  abstract clickCancel(): void;
+  abstract clickCancelButton(): void;
 
-  abstract clickCross(): void;
+  abstract clickCrossButton(): void;
 
   abstract clickActionButton(): void;
 }

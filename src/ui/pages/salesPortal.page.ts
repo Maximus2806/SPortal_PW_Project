@@ -14,11 +14,11 @@ export abstract class SalesPortalPage extends BasePage {
     await this.waitForElement(this.spinner, 'hidden');
   }
   async getNotificationMessage() {
-    const toastMessage = await this.getText(this.toast);
-    return toastMessage;
+    const notificationMessage = await this.getText(this.toast);
+    return notificationMessage;
   }
 
-  async closeToastMessage() {
+  async closeNotificationMessage() {
     await this.click(this['Close toast message']);
   }
 

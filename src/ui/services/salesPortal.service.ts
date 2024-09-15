@@ -7,6 +7,6 @@ export class SalesPortalService {
   async verifyNotification<T>(expectedMessage: T) {
     const actualMessage = await this.salesPortalPage.getNotificationMessage();
     expect(actualMessage).toBe(expectedMessage);
-    await this.salesPortalPage.closeToastMessage();
+    await this.salesPortalPage.closeNotificationMessage();
   }
 }
