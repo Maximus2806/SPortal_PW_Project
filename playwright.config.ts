@@ -13,7 +13,7 @@ dotenv.config();
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({  
+export default defineConfig({
   testDir: process.env.TESTS === 'ui' ? './src/ui/tests' : './src/api/tests',
   globalTeardown: require.resolve('./src/config/global-teardown.ts'),
   /* Run tests in files in parallel */
@@ -32,9 +32,9 @@ export default defineConfig({
       {
         // detail: true,
         outputFolder: 'allure-results',
-        suiteTitle: false,
-      },
-    ],
+        suiteTitle: false
+      }
+    ]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -42,7 +42,7 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on-first-retry'
   },
 
   /* Configure projects for major browsers */
@@ -52,11 +52,11 @@ export default defineConfig({
       name: 'ui',
       use: {
         ...devices['Desktop Chrome'],
-        headless: false,
-        storageState: 'src/.auth/user.json',
+        headless: true,
+        storageState: 'src/.auth/user.json'
       },
       dependencies: ['setup'],
-      testMatch: /.*\.spec\.ts/,
+      testMatch: /.*\.spec\.ts/
     },
 
     {
@@ -64,18 +64,18 @@ export default defineConfig({
       testMatch: /.*\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
-      },
+        headless: true
+      }
     },
 
     {
       name: 'visual',
       use: {
         ...devices['Desktop Chrome'],
-        headless: true,
+        headless: true
       },
-      testMatch: /.*\.visual\.ts/,
-    },
+      testMatch: /.*\.visual\.ts/
+    }
     // {
     //   name: "firefox",
     //   use: { ...devices["Desktop Firefox"], headless: false },
@@ -105,7 +105,7 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  ]
 
   /* Run your local dev server before starting the tests */
   // webServer: {
