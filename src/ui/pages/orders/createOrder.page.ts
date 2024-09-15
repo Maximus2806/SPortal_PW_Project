@@ -19,11 +19,11 @@ export class CreateOrderPage extends SalesPortalPage {
     await this.selectDropdownValue(`${this['Products section']}//*[@class='form-select'][${index}]`, name)
   }
 
-  async addProduct() {
+  async clickAddProduct() {
     await this.click(this['Add order button']);
   }
 
-  async deleteProduct(index: number) {
+  async clickDeleteProduct(index: number) {
     await this.click(`${this['Delete order button']}[${index}]`);
   }
 
@@ -31,15 +31,15 @@ export class CreateOrderPage extends SalesPortalPage {
     return await this.getText(this['Total order price']);
   }
 
-  async createOrder() {
+  async clickCreateOrder() {
     await this.click(this['Create order button']);
   }
 
-  async cancelOrder() {
+  async clickCancelOrder() {
     await this.click(this['Cancel order button']);
   }
 
-  async closeModalOrder() {
+  async clickCloseModalOrder() {
     await this.click(this['Close modal order button']);
   }
 

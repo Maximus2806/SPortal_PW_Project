@@ -14,7 +14,7 @@ export abstract class SalesPortalPage extends BasePage {
 
   async getHeaderPosition(header: string) {
     const elements = await this.findElements(`//thead//th`);
-    const elementsArray = await Promise.all(elements.map(async (el) => await this.getText(el)));
-    return elementsArray.length ? elementsArray.indexOf(header) + 1 : -1;
+    const elementsArray = await Promise.all(elements.map(async (el) => (await this.getText(el)).toLowerCase()));
+    return elementsArray.length ? elementsArray.indexOf(header.trim().toLowerCase()) + 1 : -1;
   }
 }
