@@ -1,12 +1,13 @@
 import { SalesPortalPage } from '../salesPortal.page.js';
 
-export class ProductsPage extends SalesPortalPage {
+export class ProductsListPage extends SalesPortalPage {
   readonly uniqueElement = '//h2[.="Products List "]';
   private readonly 'Table row selector' = (product: string) => `//tr[./td[text()="${product}"]]`;
   private readonly 'Price by table row' = (product: string) => `${this['Table row selector'](product)}/td[2]`;
   private readonly 'Manufacturer by table row' = (product: string) => `${this['Table row selector'](product)}/td[3]`;
   private readonly 'Details button' = (product: string) => `${this['Table row selector'](product)}/td[5]/button[1]`;
   private readonly 'Delete button' = (product: string) => `${this['Table row selector'](product)}/td[5]/button[3]`;
+  private readonly 'Add New Product button' = 'button.page-title-header';
 
   async clickOnAddNewProduct() {
     await this.click(this['Add New Product button']);
@@ -19,8 +20,7 @@ export class ProductsPage extends SalesPortalPage {
     ]);
     return { name, price: +price.replace('$', ''), manufacturer };
   }
-
-  //проверить, вроде этот метод отдельно вынесен был
+  
   async clickOnDetailsButton(name: string) {
     await this.click(this['Details button'](name));
   }

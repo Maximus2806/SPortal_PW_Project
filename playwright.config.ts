@@ -1,6 +1,6 @@
-import { defineConfig, devices } from "@playwright/test";
-import * as dotenv from "dotenv";
-import { TESTS } from "./src/config/environment";
+import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+import { TESTS } from './src/config/environment';
 
 dotenv.config();
 /**
@@ -13,9 +13,9 @@ dotenv.config();
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
-  testDir: process.env.TESTS === "ui" ? "./src/ui/tests" : "./src/api/tests",
-  globalTeardown: require.resolve("./src/config/global-teardown.ts"),
+export default defineConfig({  
+  testDir: process.env.TESTS === 'ui' ? './src/ui/tests' : './src/api/tests',
+  globalTeardown: require.resolve('./src/config/global-teardown.ts'),
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -26,12 +26,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ["html"],
+    ['html'],
     [
-      "allure-playwright",
+      'allure-playwright',
       {
         // detail: true,
-        outputFolder: "allure-results",
+        outputFolder: 'allure-results',
         suiteTitle: false,
       },
     ],
@@ -42,36 +42,36 @@ export default defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
-    { name: "setup", testMatch: /.*\.setup\.ts/ },
+    { name: 'setup', testMatch: /.*\.setup\.ts/, use: { headless: true } },
     {
-      name: "ui",
+      name: 'ui',
       use: {
-        ...devices["Desktop Chrome"],
-        headless: true,
-        storageState: "src/.auth/user.json",
+        ...devices['Desktop Chrome'],
+        headless: false,
+        storageState: 'src/.auth/user.json',
       },
-      dependencies: ["setup"],
+      dependencies: ['setup'],
       testMatch: /.*\.spec\.ts/,
     },
 
     {
-      name: "api",
+      name: 'api',
       testMatch: /.*\.spec\.ts/,
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
         headless: true,
       },
     },
 
     {
-      name: "visual",
+      name: 'visual',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
         headless: true,
       },
       testMatch: /.*\.visual\.ts/,
