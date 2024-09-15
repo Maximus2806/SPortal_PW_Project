@@ -1,4 +1,3 @@
-import { at } from 'lodash';
 import { SalesPortalPage } from '../salesPortal.page.js';
 
 export class OrdersPage extends SalesPortalPage {
@@ -6,13 +5,13 @@ export class OrdersPage extends SalesPortalPage {
   private readonly 'Header sort button' = (header: string) => `//*[@name="sort-button" and @fieldName='${header}']`;
   private readonly 'Table row selector' = (product: string) => `//tr[./td[text()="${product}"]]`;
   private readonly 'Order Number' = (product: string) => `${this['Table row selector'](product)}/td[1]`;
-  private readonly 'Name' = (product: string) => `${this['Table row selector'](product)}/td[2]`;
-  private readonly 'Email' = (product: string) => `${this['Table row selector'](product)}/td[3]`;
-  private readonly 'Price' = (product: string) => `${this['Table row selector'](product)}/td[4]`;
-  private readonly 'Delivery' = (product: string) => `${this['Table row selector'](product)}/td[5]`;
-  private readonly 'Status' = (product: string) => `${this['Table row selector'](product)}/td[6]`;
-  private readonly 'Created' = (product: string) => `${this['Table row selector'](product)}/td[7]`;
-  private readonly 'Order details' = (product: string) => `${this['Table row selector'](product)}/td[8]/button[1]`;
+  private readonly 'Name' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Name')}]`;
+  private readonly 'Email' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Email')}]`;
+  private readonly 'Price' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Price')}]`;
+  private readonly 'Delivery' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Delivery')}]`;
+  private readonly 'Status' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Status')}]`;
+  private readonly 'Created' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Created')}]`;
+  private readonly 'Order details' = (product: string) => `${this['Table row selector'](product)}/td[${this.getHeaderPosition('Order details')}]/button[1]`;
   private readonly 'Create Order' = `//button[contains(@class, 'page-title-button') and starts-with(., 'Create Order')]`;
   private readonly 'Filter' = `#filter`;
   private readonly 'Search bar' = `//*[contains(@class, 'search-bar')]`;
