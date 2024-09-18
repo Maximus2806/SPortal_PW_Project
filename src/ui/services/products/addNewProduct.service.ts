@@ -1,4 +1,4 @@
-import { expect, Page } from '@playwright/test';
+import { Page } from '@playwright/test';
 import { generateNewProduct } from '../../../data/products/generateProduct.js';
 import { IProduct } from '../../../data/types/product.types.js';
 import { logStep } from '../../../utils/report/logStep.js';
