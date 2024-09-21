@@ -5,7 +5,7 @@ export class EditOrderPage extends SalesPortalPage {
   readonly uniqueElement = '//h2[.="Order Details"]';
   private readonly 'Key details' = (key) => `//*[contains(@class,'fw-bold') and text()='${key}']/following-sibling::*[text()]`;
   private readonly 'Refresh order button' = `#refresh-order`;
-  private readonly 'Accortion section' = `#products-accordion-section`;
+  private readonly 'Accordion section' = `#products-accordion-section`;
   private readonly 'Accortion button' = (name) => `//button[@class="accordion-button" and normalize-space(.//text())='${name}']`;
 
 
