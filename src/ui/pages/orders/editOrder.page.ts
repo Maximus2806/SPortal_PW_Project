@@ -49,14 +49,16 @@ async getOrderDetails(): Promise<IOrderDetails> {
     await this.click(this['Refresh order button']);
   }
 
-  async getRequestedProductDetails(): Promise<IRequestedProductDetails> {
-    return {
-        name: await this.getText(this['Key details']('Name')),  
-        price: await this.getText(this['Key details']('Price')),
-        manufacturer: await this.getText(this['Key details']('Manufacturer')),
-        notes: await this.getText(this['Key details']('Notes')),
-    }
-  }
+async getRequestedProductDetails(): Promise<IRequestedProductDetails> {
+  const [name, price, manufacturer, notes] = await Promise.all([
+    this.getText(this['Key details']('Name')),
+    this.getText(this['Key details']('Price')),
+    this.getText(this['Key details']('Manufacturer')),
+    this.getText(this['Key details']('Notes'))
+  ]);
+
+  return { name, price, manufacturer, notes };
+}
 
   async collapseRequstedProduct(name: string, collapse: boolean) {
     collapse.toString() !== await this.getElementAttribute(this['Accordion button'](name), 'aria-expanded')
