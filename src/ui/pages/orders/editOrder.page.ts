@@ -6,7 +6,7 @@ export class EditOrderPage extends SalesPortalPage {
   private readonly 'Key details' = (key) => `//*[contains(@class,'fw-bold') and text()='${key}']/following-sibling::*[text()]`;
   private readonly 'Refresh order button' = `#refresh-order`;
   private readonly 'Accordion section' = `#products-accordion-section`;
-  private readonly 'Accortion button' = (name) => `//button[@class="accordion-button" and normalize-space(.//text())='${name}']`;
+  private readonly 'Accordion button' = (name) => `//button[@class="accordion-button" and normalize-space(.//text())='${name}']`;
 
 
   async getOrderDetails(): Promise<IOrderDetails> {
