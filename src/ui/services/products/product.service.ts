@@ -40,7 +40,7 @@ export class ProductsListService {
   async getCreatedProductDetails(productName: string) {
     await this.openDetails(productName);
     const productData = await this.modalWindowPage.getProductData();
-    await this.modalWindowPage.clickCrossButton();
+    await this.modalWindowPage.clickCloseModalButton();
     return productData;
   }
 

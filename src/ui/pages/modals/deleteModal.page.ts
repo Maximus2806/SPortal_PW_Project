@@ -10,7 +10,7 @@ export class DeleteModalPage extends BaseModalPage {
     await this.click(this['Cancel button'])
   }
 
-  async clickCrossButton() {    
+  async clickCloseModalButton() {    
     await this.click(this['Close modal button'])
   }
 }

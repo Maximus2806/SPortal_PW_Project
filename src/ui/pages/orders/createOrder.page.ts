@@ -31,16 +31,16 @@ export class CreateOrderPage extends SalesPortalPage {
     return await this.getText(this['Total order price']);
   }
 
-  async clickCreateOrder() {
+  async clickActionButton() {
     await this.click(this['Create order button']);
   }
 
-  async clickCancelOrder() {
+  async clickCancelButton() {
     await this.click(this['Cancel order button']);
   }
 
-  async clickCloseModalOrder() {
-    await this.click(this['Close modal order button']);
+  async clickCloseModalButton() {    
+    await this.click(this['Close modal button'])
   }
 
 }
