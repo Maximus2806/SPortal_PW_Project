@@ -30,20 +30,44 @@ async getOrderDetails(): Promise<IOrderDetails> {
 }
 
 
-  async getCustomerDetails(): Promise<ICustomerDetails> {
-    return {
-        email: await this.getText(this['Key details']('Email: ')),
-        name: await this.getText(this['Key details']('Name: ')),
-        country: await this.getText(this['Key details']('Country: ')),
-        city: await this.getText(this['Key details']('City: ')),
-        street: await this.getText(this['Key details']('Street: ')),
-        house: await this.getText(this['Key details']('House: ')),
-        flat: await this.getText(this['Key details']('Flat: ')),
-        phone: await this.getText(this['Key details']('Phone: ')),
-        createdOn: await this.getText(this['Key details']('Created On: ')),
-        notes: await this.getText(this['Key details']('Notes: ')),
-    }
-  }
+async getCustomerDetails(): Promise<ICustomerDetails> {
+  const [
+    email,
+    name,
+    country,
+    city,
+    street,
+    house,
+    flat,
+    phone,
+    createdOn,
+    notes
+  ] = await Promise.all([
+    this.getText(this['Key details']('Email: ')),
+    this.getText(this['Key details']('Name: ')),
+    this.getText(this['Key details']('Country: ')),
+    this.getText(this['Key details']('City: ')),
+    this.getText(this['Key details']('Street: ')),
+    this.getText(this['Key details']('House: ')),
+    this.getText(this['Key details']('Flat: ')),
+    this.getText(this['Key details']('Phone: ')),
+    this.getText(this['Key details']('Created On: ')),
+    this.getText(this['Key details']('Notes: '))
+  ]);
+
+  return {
+    email,
+    name,
+    country,
+    city,
+    street,
+    house,
+    flat,
+    phone,
+    createdOn,
+    notes
+  };
+}
 
   async refreshOrder() {
     await this.click(this['Refresh order button']);
