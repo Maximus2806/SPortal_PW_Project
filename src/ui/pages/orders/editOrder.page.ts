@@ -9,16 +9,26 @@ export class EditOrderPage extends SalesPortalPage {
   private readonly 'Accordion button' = (name) => `//button[@class="accordion-button" and normalize-space(.//text())='${name}']`;
 
 
-  async getOrderDetails(): Promise<IOrderDetails> {
-    return {
-        orderNumber: await this.getText(this['Key details']('Order number: ')),
-        assignedManager: await this.getText(this['Key details']('Assigned Manageer: ')),
-        totalPrice: await this.getText(this['Key details']('Order Status')),
-        orderStatus: await this.getText(this['Key details']('Total Price')),
-        delivery: await this.getText(this['Key details']('Delivery')),
-        createdOn: await this.getText(this['Key details']('Created On: ')),
-    }
-  }
+async getOrderDetails(): Promise<IOrderDetails> {
+  const [orderNumber, assignedManager, totalPrice, orderStatus, delivery, createdOn] = await Promise.all([
+    this.getText(this['Key details']('Order number: ')),
+    this.getText(this['Key details']('Assigned Manager: ')),
+    this.getText(this['Key details']('Total Price')),
+    this.getText(this['Key details']('Order Status')),
+    this.getText(this['Key details']('Delivery')),
+    this.getText(this['Key details']('Created On: '))
+  ]);
+
+  return {
+    orderNumber,
+    assignedManager,
+    totalPrice,
+    orderStatus,
+    delivery,
+    createdOn
+  };
+}
+
 
   async getCustomerDetails(): Promise<ICustomerDetails> {
     return {
