@@ -59,7 +59,7 @@ async getOrderDetails(): Promise<IOrderDetails> {
   }
 
   async collapseRequstedProduct(name: string, collapse: boolean) {
-    collapse.toString() !== await this.getElementAttribute(this['Accortion button'](name), 'aria-expanded')
+    collapse.toString() !== await this.getElementAttribute(this['Accordion button'](name), 'aria-expanded')
     && await this.click(this['Accortion button'](name))
   }
 
