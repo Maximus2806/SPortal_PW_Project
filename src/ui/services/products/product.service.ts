@@ -49,7 +49,7 @@ export class ProductsListService {
     await this.openDetails(productName);
     await this.productsPage.waitForSpinnerToHide();       
     const productData = await this.modalWindowPage.getProductData();
-    await this.modalWindowPage.clickCrossButton();
+    await this.modalWindowPage.clickCloseModalButton();
     return productData;
   }
 

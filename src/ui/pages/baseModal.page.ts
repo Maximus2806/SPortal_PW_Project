@@ -7,7 +7,7 @@ export abstract class BaseModalPage extends SalesPortalPage {
 
   abstract clickCancelButton(): void;
 
-  abstract clickCrossButton(): void;
+  abstract clickCloseModalButton(): void;
 
   abstract clickActionButton(): void;
 }
