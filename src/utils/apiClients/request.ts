@@ -17,6 +17,17 @@ export class RequestApi {
     }
   }
 
+  async sendWithoutBody(options: IRequestOptions): Promise<void>{
+    try {
+      const requestContext = await request.newContext({ baseURL: options.baseURL ?? apiConfig.baseUrl });
+      this.response = await requestContext.fetch(options.url, _.omit(options, ['baseURL', 'url']));
+      if (this.response.status() >= 500) throw new Error('Request failed with status ' + this.response.status());
+      if (this.response.status() === 204) return;
+    } catch (err) {
+      throw err;
+    }
+  }
+
   private async transormReponse() {
     const contentType = this.response.headers()['content-type'] || '';
 
