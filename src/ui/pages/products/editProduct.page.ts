@@ -1,7 +1,6 @@
 import { ProductFormPage } from './productForm.page.js';
 
 export class EditProductPage extends ProductFormPage {
-
   readonly uniqueElement = '//h2[starts-with(., "Edit ")]';
 
   private readonly 'Save Changes button' = '#save-product-changes';
@@ -9,10 +8,6 @@ export class EditProductPage extends ProductFormPage {
 
   async clickOnSaveChangesButton() {
     await this.click(this['Save Changes button']);
-  }
-
-  async clickOnBackButton() {
-    await this.click(this['Back to product page button']);
   }
 
   async clickOnDeleteButton() {
